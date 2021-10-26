@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Suelo
+  - Obstaculo
+  - Ground
+  - Obs
+  - Materiales
+  - Bandera
+  - Ladrillo
+  - Cristal
+  - SirMeyer
+  - Rueda
+  - salida
+  - Lanza1
+  - Lanza2
+  - carro enemgio
+  - CE
+  - Dv
+  - BombaPickUp
+  - bomba
+  - Enemigo
+  - cuadro
+  - Parar
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Ruedas
+  - Pick Ups
+  - Enemigos
+  - Lanzas
+  - Obs
+  - Bomba
+  - Sir Meyer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: sexta
+    uniqueID: 3378550121
+    locked: 0
+  - name: quinta
+    uniqueID: 425114247
+    locked: 0
+  - name: cuarta
+    uniqueID: 3871278429
+    locked: 0
+  - name: PRIMERA
+    uniqueID: 3260174575
+    locked: 0
+  - name: SEGUNDA
+    uniqueID: 1875367275
+    locked: 0
+  - name: TERCERA
+    uniqueID: 1641950529
+    locked: 0

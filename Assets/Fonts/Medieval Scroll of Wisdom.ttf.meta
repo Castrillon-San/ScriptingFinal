@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 79595260f94cdaa43a97524195d1d4ea
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Medieval Scroll of Wisdom
+  fontNames:
+  - Medieval Scroll of Wisdom
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3872bdadd87d14e4aa75f91e2a1daa25, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
