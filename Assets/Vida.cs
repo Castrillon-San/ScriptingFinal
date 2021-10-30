@@ -23,7 +23,7 @@ public class Vida : MonoBehaviour
         nextSceneToLoad2 = SceneManager.GetActiveScene().buildIndex + 1;
 
     }
-     void FixedUpdate()
+     void Update()
     {
         
         if (damaged == true)
@@ -41,13 +41,11 @@ public class Vida : MonoBehaviour
 
         damaged = false;
 
-    }
-    
-    void Update()
-    {
 
-       
-
+        if (BarraControlador.vida <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -57,35 +55,19 @@ public class Vida : MonoBehaviour
 
         if (other.gameObject.CompareTag("Lanza1"))
         {
-
-
             damaged = true;
-
-
-            BarraControlador.vida -= 18f; ;
-
-            
-           
-
+            BarraControlador.vida -= 18f; 
         }
+
         if (other.gameObject.CompareTag("Lanza2"))
         {
-
-
             damaged = true;
-
-
             BarraControlador.vida -= 10f; ;     
-
-
-
-
         }
+
         if (other.gameObject.CompareTag("CE"))
         {
-
             BarraControlador.vida -= 100f; ;
-            
         }
     }
   void OnTriggerEnter2D(Collider2D coll)

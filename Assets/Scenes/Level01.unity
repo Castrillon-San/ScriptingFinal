@@ -2464,7 +2464,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.84, y: -1.71}
@@ -7508,7 +7508,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.84, y: -1.71}
@@ -8688,7 +8688,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.12, y: -1.41}
@@ -22876,7 +22876,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000019073486, y: -0.88}
@@ -28193,7 +28193,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1478148097}
-  - component: {fileID: 1478148098}
   - component: {fileID: 1478148100}
   - component: {fileID: 1478148099}
   - component: {fileID: 1478148101}
@@ -28220,26 +28219,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.1850001}
---- !u!114 &1478148098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478148096}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4b41f0edd109344a5ca7e8dadbc298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombalanzamiento: {fileID: 0}
-  coolDown: 1
-  carRigidbody: {fileID: 1491566934}
-  llantaTrasera: {fileID: 0}
-  llantaDelantera: {fileID: 0}
-  velocidadmovimiento: 55
-  countText: {fileID: 0}
-  bombasText: {fileID: 0}
 --- !u!114 &1478148099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28473,6 +28452,10 @@ GameObject:
   - component: {fileID: 1491566936}
   - component: {fileID: 1491566939}
   - component: {fileID: 1491566941}
+  - component: {fileID: 1491566940}
+  - component: {fileID: 1491566944}
+  - component: {fileID: 1491566943}
+  - component: {fileID: 1491566942}
   m_Layer: 15
   m_Name: Car Controller
   m_TagString: SirMeyer
@@ -28835,15 +28818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4b41f0edd109344a5ca7e8dadbc298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombalanzamiento: {fileID: 1508835399638912, guid: 7377a2e21ad976141b078e344a54c797,
-    type: 3}
-  coolDown: 0.5
-  carRigidbody: {fileID: 1491566934}
-  llantaTrasera: {fileID: 0}
-  llantaDelantera: {fileID: 0}
   velocidadmovimiento: 43.7
-  countText: {fileID: 10668008}
-  bombasText: {fileID: 1305868561}
 --- !u!235 &1491566937
 WheelJoint2D:
   m_ObjectHideFlags: 0
@@ -28910,6 +28885,18 @@ FrictionJoint2D:
   m_ConnectedAnchor: {x: -19.3973, y: -4.782568}
   m_MaxForce: 350
   m_MaxTorque: 9900
+--- !u!114 &1491566940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491566931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46797d3ec494ba409cf4ebb115a52aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1491566941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28925,6 +28912,47 @@ MonoBehaviour:
   damageImage: {fileID: 1390047832}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.7254902}
+--- !u!114 &1491566942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491566931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3e39c3a4e8dfe45b04965f2e64689a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDown: 1
+  bombalanzamiento: {fileID: 1508835399638912, guid: 7377a2e21ad976141b078e344a54c797,
+    type: 3}
+--- !u!114 &1491566943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491566931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf3e038eb67a7f408342aa20fb71046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1491566944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491566931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd99cf6b13990b64a9e334e79627d02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 10668008}
+  bombasText: {fileID: 1305868561}
 --- !u!1 &1492701365
 GameObject:
   m_ObjectHideFlags: 0
@@ -36398,7 +36426,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.12, y: -1.41}
@@ -42270,7 +42298,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000019073486, y: -0.88}
