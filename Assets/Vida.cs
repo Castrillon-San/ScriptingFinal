@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Vida : MonoBehaviour
+public class Vida : MonoBehaviour, IVehiculo
 {
                            
                             
@@ -13,15 +13,21 @@ public class Vida : MonoBehaviour
     Image Barra;
     public static float vida = 100f;                                      
     bool damaged =false;
-    private int nextSceneToLoad2;
 
 
     void Start()
     {
         Barra = GetComponent<Image>();
+    }
 
-        nextSceneToLoad2 = SceneManager.GetActiveScene().buildIndex + 1;
-
+    public void Damage(int daño)
+    {
+        damaged = true;
+        BarraControlador.vida -= daño; 
+    }
+    public Transform GetTransform()
+    {
+        return this.transform;
     }
      void Update()
     {
@@ -44,7 +50,7 @@ public class Vida : MonoBehaviour
 
         if (BarraControlador.vida <= 0f)
         {
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -52,19 +58,6 @@ public class Vida : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-
-        if (other.gameObject.CompareTag("Lanza1"))
-        {
-            damaged = true;
-            BarraControlador.vida -= 18f; 
-        }
-
-        if (other.gameObject.CompareTag("Lanza2"))
-        {
-            damaged = true;
-            BarraControlador.vida -= 10f; ;     
-        }
-
         if (other.gameObject.CompareTag("CE"))
         {
             BarraControlador.vida -= 100f; ;
@@ -74,9 +67,7 @@ public class Vida : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("CE"))
         {
-            BarraControlador.vida -= 100f; ;
+            BarraControlador.vida -= 100f;
         }
     }
-
-
 }
