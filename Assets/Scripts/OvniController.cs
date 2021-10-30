@@ -36,7 +36,7 @@ public class OvniController : MonoBehaviour
     void CheckIfTimeToFire()
     {
 
-        if (Time.time > nextfire)
+        if (Time.time > nextfire && target.gameObject.activeSelf != false)
         {
             Instantiate(lanza2, transform.position, Quaternion.identity);
             nextfire = Time.time + firerate;

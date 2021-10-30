@@ -1,22 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+public class LanzaControlador : MonoBehaviour
+{
 
-public class LanzaControlador : MonoBehaviour {
- 
     protected float moveSpeed = 33f;
     protected Rigidbody2D bala;
-    protected ControladorCarro target;
+    protected IVehiculo[] target;
+    protected int actualTarget = 0;
     protected Vector2 moveDirection;
-    void Start() {
+    protected int damage = 10;
+    void Awake() {
         bala = GetComponent<Rigidbody2D>();
-        target = GameObject.FindObjectOfType<ControladorCarro>();
-        Lanzar();
+        target = FindObjectsOfType<MonoBehaviour>().OfType<IVehiculo>().ToArray();
+       
+    }
+    private void Start()
+    {
+         if(target != null)
+        {
+            moveDirection = (target[actualTarget].GetTransform().position - transform.position).normalized * moveSpeed;
+            Lanzar();
+        }
     }
 
     public virtual void Lanzar()
     {
-        moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
         bala.velocity = new Vector2(50, 17);
         Destroy(gameObject, 10f);
     }
@@ -25,6 +35,7 @@ public class LanzaControlador : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("SirMeyer"))
         {
+            target[actualTarget].Damage(damage);
             Destroy(gameObject);
         }
     }
