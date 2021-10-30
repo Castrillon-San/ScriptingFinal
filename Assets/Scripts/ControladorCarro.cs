@@ -7,10 +7,16 @@ using UnityEngine.SceneManagement;
 public class ControladorCarro : MonoBehaviour
 {
     [SerializeField]
+
     GameObject bombalanzamiento;
+
     public float coolDown = 1;
+
     private float coolDownTimer;
+
+
     private Transform target;
+
     bool Salida = false;
     private int nextSceneToLoad1;
     public Rigidbody2D carRigidbody;
@@ -66,6 +72,7 @@ public class ControladorCarro : MonoBehaviour
         if (euler.z > 180) euler.z = euler.z - 360;
         euler.z = Mathf.Clamp(euler.z, -4, 6);
         transform.eulerAngles = euler;
+        
         if (BarraControlador.vida <= 0f)
         {
             Destroy(gameObject);

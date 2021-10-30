@@ -13970,7 +13970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 38
-  anim: {fileID: 0}
 --- !u!50 &727469992
 Rigidbody2D:
   serializedVersion: 4
@@ -22775,7 +22774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1194405016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28883,7 +28882,7 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -2.16, y: -1.04}
+  m_Anchor: {x: -2.2, y: -1.04}
   m_ConnectedAnchor: {x: 0.05, y: 0.11}
   m_Suspension:
     m_DampingRatio: 0.6
@@ -36747,7 +36746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1798117357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39175,7 +39174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1925178067
 RectTransform:
   m_ObjectHideFlags: 0
