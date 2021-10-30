@@ -7,20 +7,20 @@ public class LanzaControlador : MonoBehaviour
 
     protected float moveSpeed = 33f;
     protected Rigidbody2D bala;
-    protected IVehiculo[] target;
+    protected IDamage[] targets;
     protected int actualTarget = 0;
     protected Vector2 moveDirection;
     protected int damage = 10;
     void Awake() {
         bala = GetComponent<Rigidbody2D>();
-        target = FindObjectsOfType<MonoBehaviour>().OfType<IVehiculo>().ToArray();
+        targets = FindObjectsOfType<MonoBehaviour>().OfType<IDamage>().ToArray();
        
     }
     private void Start()
     {
-         if(target != null)
+         if(targets != null)
         {
-            moveDirection = (target[actualTarget].GetTransform().position - transform.position).normalized * moveSpeed;
+            moveDirection = (targets[actualTarget].GetTransform().position - transform.position).normalized * moveSpeed;
             Lanzar();
         }
     }
@@ -33,9 +33,9 @@ public class LanzaControlador : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("SirMeyer"))
+        if (other.gameObject.CompareTag(targets[actualTarget].GetTransform().gameObject.tag))
         {
-            target[actualTarget].Damage(damage);
+            targets[actualTarget].Damage(damage);
             Destroy(gameObject);
         }
     }

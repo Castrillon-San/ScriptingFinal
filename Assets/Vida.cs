@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Vida : MonoBehaviour, IVehiculo
+public class Vida : MonoBehaviour, IDamage
 {
                            
                             
