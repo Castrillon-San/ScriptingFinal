@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControladorCarro : MonoBehaviour
+public class ControladorCarro : MonoBehaviour,IDamage
 {
     Rigidbody2D carRigidbody;
     public float velocidadmovimiento;
+    Vida vida;
 
     private void Awake()
     {
         carRigidbody = GetComponent<Rigidbody2D>();
+        vida = GetComponent<Vida>();
     }
     private void FixedUpdate()
     {
@@ -47,6 +49,17 @@ public class ControladorCarro : MonoBehaviour
             velocidadmovimiento = 45;
         }
     }
-   
+
+    public void Damage(int daño)
+    {
+      
+        vida.Damage(daño);
+    }
+
+
+    public Transform GetTransform()
+    {
+        return this.transform;
+    }
 }
 

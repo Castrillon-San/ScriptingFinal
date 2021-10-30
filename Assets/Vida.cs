@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Vida : MonoBehaviour, IDamage
+public class Vida : MonoBehaviour
 {
                            
                             
@@ -20,15 +20,7 @@ public class Vida : MonoBehaviour, IDamage
         Barra = GetComponent<Image>();
     }
 
-    public void Damage(int daño)
-    {
-        damaged = true;
-        BarraControlador.vida -= daño; 
-    }
-    public Transform GetTransform()
-    {
-        return this.transform;
-    }
+   
      void Update()
     {
         
@@ -69,5 +61,11 @@ public class Vida : MonoBehaviour, IDamage
         {
             BarraControlador.vida -= 100f;
         }
+    }
+
+    public void Damage(int daño)
+    {
+        damaged = true;
+        BarraControlador.vida -= daño;
     }
 }
