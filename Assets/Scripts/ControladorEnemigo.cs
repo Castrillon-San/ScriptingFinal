@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ControladorEnemigo : MonoBehaviour
 {
-    [SerializeField]
-    GameObject lanza;
+    
+    public Proyectiles proyectiles;
     float firerate;
     float nextfire;
     public float jumpForce;
@@ -21,6 +21,7 @@ public class ControladorEnemigo : MonoBehaviour
 
     void Start()
     {
+        proyectiles.CrearLista();
         target = GameObject.FindGameObjectWithTag("SirMeyer").GetComponent<Transform>();
         firerate = 2.8f;
         nextfire = Time.time;
@@ -42,7 +43,13 @@ public class ControladorEnemigo : MonoBehaviour
 
         if (Time.time > nextfire && target.gameObject.activeSelf != false)
         {
-            Instantiate(lanza, transform.position, Quaternion.identity);
+            GameObject lanza = proyectiles.GetPooledObject();
+            if (lanza != null)
+            {
+                lanza.transform.position = this.transform.position;
+                lanza.transform.rotation = this.transform.rotation;
+                lanza.SetActive(true);
+            }
             nextfire = Time.time + firerate;
         }
     }
@@ -63,7 +70,7 @@ public class ControladorEnemigo : MonoBehaviour
         if (other.gameObject.CompareTag("bomba")) 
         {
             parar = true;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject); //ojo
             speed = 23;
             OvniController.speed = 23;
         }
