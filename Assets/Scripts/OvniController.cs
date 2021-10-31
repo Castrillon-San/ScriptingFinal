@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class OvniController : MonoBehaviour
 {
-    [SerializeField]
-    GameObject lanza2;
-
-
+  
     public Rigidbody2D enemigo;
+    public Proyectiles proyectiles;
     public static float speed;
     float firerate;
     float nextfire;
@@ -18,6 +16,7 @@ public class OvniController : MonoBehaviour
 
     void Start()
     {
+        proyectiles.CrearLista();
         target = GameObject.FindGameObjectWithTag("SirMeyer").GetComponent<Transform>();
         firerate = 11f;
         nextfire = Time.time;
@@ -38,7 +37,13 @@ public class OvniController : MonoBehaviour
 
         if (Time.time > nextfire && target.gameObject.activeSelf != false)
         {
-            Instantiate(lanza2, transform.position, Quaternion.identity);
+            GameObject lanza2 = proyectiles.GetPooledObject();
+            if (lanza2 != null)
+            {
+                lanza2.transform.position = this.transform.position;
+                lanza2.transform.rotation = this.transform.rotation;
+                lanza2.SetActive(true);
+            }
             nextfire = Time.time + firerate;
         }
     }

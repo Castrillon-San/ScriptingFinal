@@ -10,7 +10,12 @@ public class LanzaOvni : LanzaControlador
     }
     public override void Lanzar()
     {
-        bala.velocity = new Vector2(70, 6); 
-        Destroy(gameObject, 10f);
+        bala.velocity = new Vector2(70, 6);
+        StartCoroutine("DesactivarP");
+    }
+    IEnumerator DesactivarP()
+    {
+        yield return new WaitForSeconds(10f);
+        gameObject.SetActive(false);
     }
 }

@@ -27,8 +27,9 @@ public class LanzaControlador : MonoBehaviour
 
     public virtual void Lanzar()
     {
+
         bala.velocity = new Vector2(50, 17);
-        Destroy(gameObject, 10f);
+        StartCoroutine("DesactivarP");
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -36,7 +37,12 @@ public class LanzaControlador : MonoBehaviour
         if (other.gameObject.CompareTag(targets[actualTarget].GetTransform().gameObject.tag))
         {
             targets[actualTarget].Damage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+    IEnumerator DesactivarP()
+    {
+        yield return new WaitForSeconds(10f);
+        gameObject.SetActive(false);
     }
 }
