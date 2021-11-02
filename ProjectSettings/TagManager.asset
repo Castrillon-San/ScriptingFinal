@@ -25,6 +25,8 @@ TagManager:
   - Enemigo
   - cuadro
   - Parar
+  - PantallaIni
+  - PantallaFin
   layers:
   - Default
   - TransparentFX
