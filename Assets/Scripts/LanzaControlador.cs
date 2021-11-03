@@ -5,15 +5,16 @@ using System.Linq;
 public class LanzaControlador : MonoBehaviour
 {
 
-    protected float moveSpeed = 33f;
+    protected float moveSpeed = 1.5f;
     protected Rigidbody2D bala;
-    protected IDamage[] targets;
+    protected IVehicle[] targets;
     protected int actualTarget = 0;
     protected Vector2 moveDirection;
     protected int damage = 10;
+    protected IDamage enemigo;
     void Awake() {
         bala = GetComponent<Rigidbody2D>();
-        targets = FindObjectsOfType<MonoBehaviour>().OfType<IDamage>().ToArray();
+        targets = FindObjectsOfType<MonoBehaviour>().OfType<IVehicle>().ToArray();
        
     }
     private void Start()
@@ -24,11 +25,13 @@ public class LanzaControlador : MonoBehaviour
             Lanzar();
         }
     }
+  
 
     public virtual void Lanzar()
     {
 
-        bala.velocity = new Vector2(50, 17);
+        bala.velocity = new Vector2(50, 20)*moveDirection;
+        actualTarget = Random.Range(0, targets.Length-1);
         StartCoroutine("DesactivarP");
     }
 
@@ -36,7 +39,15 @@ public class LanzaControlador : MonoBehaviour
     {
         if (other.gameObject.CompareTag(targets[actualTarget].GetTransform().gameObject.tag))
         {
-            targets[actualTarget].Damage(damage);
+            
+            enemigo = other.gameObject.GetComponent<IDamage>();
+
+            if (enemigo != null)
+            {
+                enemigo.Damage(damage);
+                enemigo = null;
+            }
+            
             gameObject.SetActive(false);
         }
     }

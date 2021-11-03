@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControladorCarro : MonoBehaviour,IDamage
+public class ControladorCarro : MonoBehaviour,IDamage, IVehicle
 {
     Rigidbody2D carRigidbody;
     public float velocidadmovimiento;

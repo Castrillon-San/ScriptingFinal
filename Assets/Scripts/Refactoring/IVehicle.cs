@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamage
+public interface IVehicle
 {
-    public void Damage(int daño);
+    public Transform GetTransform();
+
 }

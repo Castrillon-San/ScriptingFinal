@@ -10,7 +10,7 @@ public class LanzaOvni : LanzaControlador
     }
     public override void Lanzar()
     {
-        bala.velocity = new Vector2(70, 6);
+        bala.velocity = new Vector2(75, 3)* moveDirection;
         StartCoroutine("DesactivarP");
     }
     IEnumerator DesactivarP()
